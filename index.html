@@ -1,45 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Management System</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventory Management System</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div>
+  <div class="main-container">
+   
+    <div class="sidebar">
+      <h3>Search Item</h3>
+      <label><input type="text" id="itemSearch" placeholder="Seach"/></label>
+      <button id="searchBtn" class="search-btn">Add Item</button>
+      <h3>Filter Items</h3>
+
+      <h4>Type of Item</h4>
+      <label><input type="checkbox" name="type" value="electronics" /> Electronics</label>
+      <label><input type="checkbox" name="type" value="furniture" /> Furniture</label>
+      <label><input type="checkbox" name="type" value="clothing" /> Clothing</label>
+
+      <h4>Price</h4>
+      <input type="number" placeholder="Min Price">
+      <input type="number" placeholder="Max Price">
+
+      <h4>Quantity</h4>
+      <input type="number" placeholder="Min Qty">
+      <input type="number" placeholder="Max Qty">
+    </div>
+
+   
+    <div class="content">
+      <div class="header-bar">
         <h1>Inventory Management System</h1>
-        
-        <div >
-            <input type="text" id="itemName" placeholder="Item Name" />
-            <input type="text" id="itemDetail" placeholder="Detail" />
-            <input type="number" id="itemQuantity" placeholder="Quantity" />
-            <input type="text" id="itemPrice" placeholder="Price" />
-            <input type="text" id="itemDate" placeholder="Date" />
-            <button onclick="addItem()">Add Item</button>
-            <input type="text" id="itemSearch" placeholder="Search Item">
-        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/90/90825.png" alt="Inventory" class="inventory-icon">
+        <button id="openModalBtn" class="add-item-btn">Add Item</button>
+      </div>
 
-        <table id="inventoryTable">
-            <thead>
-                <tr>
-                    <th>Item Name</th>
-                    <th>Detail</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Detail</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
     </div>
-    <div class="container">
-        
+  </div>
+
+
+  <div id="itemModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2>Manage Item</h2>
+      <div class="modal-inputs">
+        <input type="text" id="itemName" placeholder="Item Name" />
+        <input type="text" id="itemDetail" placeholder="Detail" />
+        <input type="number" id="itemQuantity" placeholder="Quantity" />
+        <input type="text" id="itemPrice" placeholder="Price" />
+        <input type="text" id="itemDate" placeholder="Date" />
+        <button onclick="addItem()">Save Item</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventory Management System</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="main-container">
+   
+    <div class="sidebar">
+      <h3>Search Item</h3>
+      <label><input type="text" id="itemSearch" placeholder="Seach"/></label>
+      <button id="searchBtn" class="search-btn">Add Item</button>
+      <h3>Filter Items</h3>
+
+      <h4>Type of Item</h4>
+      <label><input type="checkbox" name="type" value="electronics" /> Electronics</label>
+      <label><input type="checkbox" name="type" value="furniture" /> Furniture</label>
+      <label><input type="checkbox" name="type" value="clothing" /> Clothing</label>
+
+      <h4>Price</h4>
+      <input type="number" placeholder="Min Price">
+      <input type="number" placeholder="Max Price">
+
+      <h4>Quantity</h4>
+      <input type="number" placeholder="Min Qty">
+      <input type="number" placeholder="Max Qty">
     </div>
 
-    <script src="script.js"></script>
+   
+    <div class="content">
+      <div class="header-bar">
+        <h1>Inventory Management System</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/90/90825.png" alt="Inventory" class="inventory-icon">
+        <button id="openModalBtn" class="add-item-btn">Add Item</button>
+      </div>
+
+      <table id="inventoryTable">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Detail</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div id="itemModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h2>Manage Item</h2>
+      <div class="modal-inputs">
+        <input type="text" id="itemName" placeholder="Item Name" />
+        <input type="text" id="itemDetail" placeholder="Detail" />
+        <input type="number" id="itemQuantity" placeholder="Quantity" />
+        <input type="text" id="itemPrice" placeholder="Price" />
+        <input type="text" id="itemDate" placeholder="Date" />
+        <button onclick="addItem()">Save Item</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
